@@ -1,0 +1,182 @@
+<!-- Team Section By Theo-->
+    <section class="section" id="equipe">
+      <div class="container">
+        <h2 class="section-title">Nossa Equipe</h2>
+        <p class="section-description">
+          Conheça os talentos por trás do projeto Nao sei o nome. Nossa equipe multidisciplinar 
+          combina conhecimentos em engenharia, ciência de dados e conservação ambiental.
+        </p>
+    
+        <!-- Líder da equipe -->
+        <div class="team-leader">
+          <div class="team-card">
+            <div class="team-photo">
+              <div class="placeholder">
+                <img src="Imagens/loga.jpg" alt="" srcset="">
+              </div>
+            </div>
+            <div class="team-info">
+              <div class="team-role">Líder do Projeto</div>
+              <h3 class="team-name">Angellyna</h3>
+              <p class="team-description">
+                Especialista em sistemas embarcados e IoT, com experiência em projetos de monitoramento ambiental.
+                Responsável pela coordenação técnica e desenvolvimento da arquitetura do sistema.
+              </p>
+              
+              <div class="team-details">
+                <div class="team-skills">
+                  <h4>Especialidades</h4>
+                  <div class="skills-tags">
+                    <span class="skill-tag">Raspberry Pi</span>
+                    <span class="skill-tag">Sensores</span>
+                    <span class="skill-tag">IoT</span>
+                  </div>
+                </div>
+                <div class="team-contact">
+                  <h4>Contato</h4>
+                  <p>angel@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Outros membros da equipe By Theo-->
+        <div class="team-grid">
+          <!-- Membro 1 -->
+          <div class="team-member-card">
+            <div class="member-photo">
+              <div class="placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                <p class="placeholder-text"></p>
+                <img src="Imagens/loga.jpg" alt="foto-de-membro">
+              </div>
+            </div>
+            <div class="member-info">
+              <div class="member-role">Eng. de Hardware</div>
+              <h3 class="member-name">Anaise</h3>
+              <p class="member-description">
+                Responsável pelo design dos circuitos e integração dos sensores com o Raspberry Pi.
+              </p>
+              <div class="skills-tags">
+                <span class="skill-tag">Eletrônicaㅤㅤㅤㅤㅤ</span>
+                <span class="skill-tag">PCBㅤㅤㅤㅤ</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Membro 2 -->
+          <div class="team-member-card">
+            <div class="member-photo">
+              <div class="placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                <p class="placeholder-text"></p>
+                <img src="Imagens/loga.jpg" alt="foto-de-membro">
+              </div>
+            </div>
+            <div class="member-info">
+              <div class="member-role">Eng. de Software</div>
+              <h3 class="member-name">Maria Isabelly</h3>
+              <p class="member-description">
+                Desenvolvimento do firmware do Raspberry Pi e algoritmos de detecção de sons.
+              </p>
+              <div class="skills-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Machine Learning</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Membro 3 -->
+          <div class="team-member-card">
+            <div class="member-photo">
+              <div class="placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                <p class="placeholder-text">#FotoMembro3</p>
+                <img src="Imagens/loga.jpg" alt="foto-de-membro">
+              </div>
+            </div>
+            <div class="member-info">
+              <div class="member-role">Cientista de Dados</div>
+              <h3 class="member-name">Maria Paula</h3>
+              <p class="member-description">
+                Análise dos dados coletados e desenvolvimento de modelos preditivos.
+              </p>
+              <div class="skills-tags">
+                <span class="skill-tag">Análise de Dados</span>
+                <span class="skill-tag">Estatística</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Membro 4 -->
+          <div class="team-member-card">
+            <div class="member-photo">
+              <div class="placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                <p class="placeholder-text">#FotoMembro4</p>
+                <img src="Imagens/loga.jpg" alt="foto-de-membro">
+              </div>
+            </div>
+            <div class="member-info">
+              <div class="member-role">Biólogo</div>
+              <h3 class="member-name">Emelly</h3>
+              <p class="member-description">
+                Especialista em ecologia florestal, fornecendo insights sobre os parâmetros ambientais.
+              </p>
+              <div class="skills-tags">
+                <span class="skill-tag">Ecologiaㅤㅤ</span>
+                <span class="skill-tag">Conservação</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Membro 5 -->
+          <div class="team-member-card">
+            <div class="member-photo">
+              <div class="placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                <p class="placeholder-text">#FotoMembro5</p>
+                <img src="Imagens/loga.jpg" alt="foto-de-membro">
+              </div>
+            </div>
+            <div class="member-info">
+              <div class="member-role">Web Developer</div>
+              <h3 class="member-name">Theo Antonni</h3>
+              <p class="member-description">
+                Desenvolvimento da plataforma web para visualização dos dados coletados.
+              </p>
+              <div class="skills-tags">
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">APIs</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Membro 6 -->
+          <div class="team-member-card">
+            <div class="member-photo">
+              <div class="placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                <p class="placeholder-text"></p>
+                <img src="Imagens/loga.jpg" alt="foto-de-membro">
+              </div>
+            </div>
+            <div class="member-info">
+              <div class="member-role">Designer</div>
+              <h3 class="member-name">Miguel Rian</h3>
+              <p class="member-description">
+                Design do hardware e interface do usuário da plataforma web.
+                lindo demais
+              </p>
+              <div class="skills-tags">
+                <span class="skill-tag">UI/UX</span>
+                <span class="skill-tag">CAD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    

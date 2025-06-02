@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentinel - Monitoramento de Desmatamento</title>
+    <meta name="description" content="Projeto de monitoramento de desmatamento usando Raspberry Pi e sensores para detecção de CO2 e sons de motoserra" />
+    <meta name="author" content="Equipe EcoVigilante" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="EcoVigilante - Monitoramento de Desmatamento" />
+    <meta property="og:description" content="Projeto de monitoramento de desmatamento usando Raspberry Pi e sensores para detecção de CO2 e sons de motoserra" />
+    <meta property="og:type" content="website" />
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
+  </head>
+
+  <body>
+    <!-- Navbar como e muita coisa nomiel tudo para que eu consiga indentificar By: Theo xmlns=""http://www.w3.org/2000/svg
+     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><path d="M16 16a4 4 0 0 1-8 0 4 4 0 0 1 8 0z"/><path d="M12 3v1"/><path d="M12 20v1"/><path d="M3 12h1"/><path d="M20 12h1"/><path d="m18.364 5.636-.707.707"/><path d="m6.343 17.657-.707.707"/><path d="m5.636 5.636.707.707"/><path d="m17.657 17.657.707.707"/></svg>
+          <span>Theo que Manja Papai</span>-->
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <div class="navbar-logo">
+            
+           <img src="Imagens/logo.png" alt="Logo" width="50" height="50" />
+           <span>Sentinel</span>
+        </div>
+        
+        <div class="navbar-links" id="navbar-links">
+          <a href="#projeto" class="nav-link">Projeto</a>
+          <a href="#sobre" class="nav-link">Sobre</a>
+          <a href="#construcao" class="nav-link">Construção</a>
+          <a href="#monitoramento" class="nav-link">Monitoramento</a>
+          <a href="#equipe" class="nav-link">Equipe</a>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <span></span>
+          <span></span> 
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section Usei o tradutor em muita coisa mas as coisas ta ingles By: Theo-->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Monitoramento Inteligente de <span class="text-gradient">Florestas</span></h1>
+          <p>Usando Raspberry Pi e sensores avançados para detectar desmatamento através de níveis de CO₂ e reconhecimento de sons de motosserra.</p>
+          <div class="hero-buttons">
+            <a href="#projeto" class="btn btn-primary">Conheça o Projeto</a>
+            <a href="#equipe" class="btn btn-outline">Nossa Equipe</a>
+          </div>
+          
+          <div class="hero-features">
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16a4 4 0 0 1-8 0 4 4 0 0 1 8 0z"/><path d="M12 3v1"/><path d="M12 20v1"/><path d="M3 12h1"/><path d="M20 12h1"/><path d="m18.364 5.636-.707.707"/><path d="m6.343 17.657-.707.707"/><path d="m5.636 5.636.707.707"/><path d="m17.657 17.657.707.707"/></svg>
+              <span>Preservação Ambiental</span>
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+              <span>Monitoramento de CO₂</span>
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="20" rx="2" ry="2"/><path d="M4 10v4"/><path d="M20 10v4"/></svg>
+              <span>Detecção de Sons</span>
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
+              <span>Raspberry Pi</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-image">
+          <div class="image-container">
+            <!-- Placeholder for image -->
+            <div class="placeholder">
+              <!--<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16a4 4 0 0 1-8 0 4 4 0 0 1 8 0z"/><path d="M12 3v1"/><path d="M12 20v1"/><path d="M3 12h1"/><path d="M20 12h1"/><path d="m18.364 5.636-.707.707"/><path d="m6.343 17.657-.707.707"/><path d="m5.636 5.636.707.707"/><path d="m17.657 17.657.707.707"/></svg>-->
+              <p class="placeholder-text">
+                <img src="Imagens/logo.png" alt="foto">
+              </p>
+            </div>
+          </div>
+          
+          <div class="info-badge badge-top">
+            <div class="badge-content">
+              <div class="badge-icon"></div>
+              <span>Raspberry Pi 2W Pico</span>
+            </div>
+          </div>
+          
+          <div class="info-badge badge-bottom">
+            <div class="badge-content">
+              <div class="badge-icon animated"></div>
+              <span>Sistema Operacional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-down">
+        <a href="#projeto">
+          <span>Saiba mais</span>
+          <div class="scroll-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Project Section By Theo -->
+    <section class="section" id="projeto">
+      <div class="container">
+        <h2 class="section-title">O Projeto</h2>
+        
+        <div class="project-grid">
+          <div class="project-info">
+            <h3>Monitoramento Autônomo de Desmatamento</h3>
+            <p>
+              Nosso projeto utiliza um Raspberry Pi 2W Pico e diversos sensores para criar um sistema autônomo de 
+              monitoramento florestal capaz de detectar atividades de desmatamento em tempo real.
+            </p>
+            <p>
+              Através da análise de níveis de CO₂ e reconhecimento de sons de motosserra, nosso dispositivo pode 
+              alertar sobre atividades suspeitas e contribuir para a preservação das florestas.
+            </p>
+            
+            <div class="features-card">
+              <h4>Principais características:</h4>
+              <ul>
+                <li>Sensores de CO₂ para monitorar alterações ambientais</li>
+                <li>Microfones para detecção de sons de motosserra</li>
+                <li>Sistema alimentado por ...</li>
+                <li>Comunicação sem fio para envio de alertas</li>
+                <li>Interface web para monitoramento remoto</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="project-features">
+            <div class="feature-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22a8 8 0 0 1 13.292-6"/><path d="M9 17h6"/><circle cx="9" cy="11" r="1"/><circle cx="15" cy="11" r="1"/><path d="m9 7-3 1"/><path d="m15 7 3 1"/><path d="M12 13v3"/><path d="m10 2 1 2 1-2 1 2 1-2"/><path d="M19 9a7 7 0 0 0-13.6-2.3"/></svg>
+              <h3>Detecção de CO₂</h3>
+              <p>
+                Nossos sensores são capazes de detectar mudanças nos níveis de CO₂, 
+                que podem indicar queimadas ou outras atividades de desmatamento. O 
+                aumento repentino de CO₂ é um forte indicador de degradação florestal.
+              </p>
+            </div>
+            
+            <div class="feature-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="20" rx="2" ry="2"/><path d="M4 10v4"/><path d="M20 10v4"/></svg>
+              <h3>Reconhecimento de Sons</h3>
+              <p>
+                Utilizamos tecnologia de reconhecimento de áudio para identificar sons específicos
+                como motosserras e veículos pesados, que são comuns em operações de desmatamento
+                ilegal.
+              </p>
+            </div>
+            
+            <div class="feature-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
+              <h3>Monitoramento Ambiental</h3>
+              <p>
+                Além da detecção de atividades ilegais, nosso sistema também monitora 
+                condições ambientais como temperatura, umidade e qualidade do ar, contribuindo
+                para estudos ambientais de longo prazo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-colored" id="sobre">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-info">
+            <h2 class="section-title">Sobre o Projeto</h2>
+            <p>
+              Nosso sistema de monitoramento representa um avanço significativo na luta contra o desmatamento ilegal,
+              combinando tecnologia acessível com monitoramento ambiental eficiente.
+            </p>
+            <p>
+              O desmatamento é uma das principais causas das mudanças climáticas e da perda de biodiversidade.
+              Pequenas áreas de desmatamento ilegal muitas vezes passam despercebidas por satélites, mas nosso
+              sistema de sensores pode detectar essas atividades localmente e em tempo real.
+            </p>
+            
+            <div class="about-question">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              <span>Como nosso projeto ajuda no combate ao desmatamento?</span>
+            </div>
+            
+            <ul class="benefits-list">
+              <li>
+                <div class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Detecção precoce:</strong>
+                  <span>Alertas em tempo real sobre atividades suspeitas, permitindo ação rápida.</span>
+                </div>
+              </li>
+              <li>
+                <div class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Monitoramento constante:</strong>
+                  <span>Funcionamento autônomo, necessidade moderada de intervenção humana.</span>
+                </div>
+              </li>
+              <li>
+                <div class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Baixo custo:</strong>
+                  <span>Utilizamos componentes acessíveis como o Raspberry Pi 2W Pico, tornando o sistema replicável.</span>
+                </div>
+              </li>
+              <li>
+                <div class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Coleta de dados:</strong>
+                  <span>Geração de dados valiosos para pesquisas ambientais e planejamento de conservação.</span>
+                </div>
+              </li>
+              <li>
+                <div class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <strong>Complemento a outras tecnologias:</strong>
+                  <span>Trabalha em conjunto com monitoramento por IA para uma cobertura mais completa.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="about-metrics">
+            <div class="metrics-card">
+              <h3>Impacto Ambiental "Aqui e Mentira"</h3>
+              
+              <div class="progress-item">
+                <div class="progress-label">
+                  <span>Prevenção de Desmatamento</span>
+                  <span class="progress-value">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 85%;"></div>
+                </div>
+              </div>
+              
+              <div class="progress-item">
+                <div class="progress-label">
+                  <span>Detecção de CO₂</span>
+                  <span class="progress-value">92%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 92%;"></div>
+                </div>
+              </div>
+              
+              <div class="progress-item">
+                <div class="progress-label">
+                  <span>Identificação de Sons</span>
+                  <span class="progress-value">78%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 78%;"></div>
+                </div>
+              </div>
+              
+              <div class="progress-item">
+                <div class="progress-label">
+                  <span>Autonomia Energética</span>
+                  <span class="progress-value">95%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 95%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Construction Section -->
+    <section class="section" id="construcao">
+      <div class="container">
+        <h2 class="section-title">A Construção</h2>
+        <p class="section-description">
+          Nosso projeto utiliza componentes de hardware e software de código aberto para criar um sistema 
+          de monitoramento eficiente e replicável. Abaixo você pode visualizar o modelo 3D da case do nosso protótipo.
+        </p>
+        
+        <div class="construction-grid">
+          <div class="construction-model">
+            <div class="model-container">
+              <!-- Placeholder for 3D model -->
+              <div class="placeholder">
+                <!--<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M4 13h7"/><path d="M4 17h7"/></svg> -->
+                <spline-viewer url="https://prod.spline.design/cFC57hvt5dIFpP8m/scene.splinecode"></spline-viewer>
+                <p class="placeholder-text">
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="construction-specs">
+            <div class="specs-card">
+              <h3>Componentes Utilizados</h3>
+              <ul class="components-list">
+                <li>
+                  <div class="component-bullet"></div>
+                  <div class="component-info">
+                    <span>Raspberry Pi 2W Pico</span>
+                    <span class="component-description">Microcontrolador central.</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="component-bullet"></div>
+                  <div class="component-info">
+                    <span>Sensor MQ-2</span>
+                    <span class="component-description">Detecção de CO₂ e gases.</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="component-bullet"></div>
+                  <div class="component-info">
+                    <span>Sensor de Chama</span>
+                    <span class="component-description">Detecção de Chamas.</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="component-bullet"></div>
+                  <div class="component-info">
+                    <span>Sensor DHT22</span>
+                    <span class="component-description">Detecção da temperatura do ambiente.</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="component-bullet"></div>
+                  <div class="component-info">
+                    <span>Microfone MAX9814</span>
+                    <span class="component-description">Detecção de som ambiente.</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="component-bullet"></div>
+                  <div class="component-info">
+                    <span>Painel Solar 5V</span>
+                    <span class="component-description">Alimentação energética.</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="component-bullet"></div>
+                  <div class="component-info">
+                    <span>Módulo SIM800L</span>
+                    <span class="component-description">Comunicação sem fio com uso de SMS.</span>
+                  </div>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <div class="specs-card">
+              <h3>Especificações Técnicas</h3>
+              
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span>Consumo de Energia</span>
+                  <span class="spec-value">120mA</span>
+                </div>
+                <div class="spec-bar">
+                  <div class="spec-fill" style="width: 30%;"></div>
+                </div>
+              </div>
+              
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span>Precisão do Sensor</span>
+                  <span class="spec-value">±5ppm</span>
+                </div>
+                <div class="spec-bar">
+                  <div class="spec-fill" style="width: 85%;"></div>
+                </div>
+              </div>
+              
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span>Alcance do Microfone</span>
+                  <span class="spec-value">100m</span>
+                </div>
+                <div class="spec-bar">
+                  <div class="spec-fill" style="width: 70%;"></div>
+                </div>
+              </div>
+              
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span>Alcance da Transmissão</span>
+                  <span class="spec-value">500m</span>
+                </div>
+                <div class="spec-bar">
+                  <div class="spec-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monitoring Section -->
+    <section class="section section-colored" id="monitoramento">
+      <div class="container">
+        <h2 class="section-title">Monitoramento</h2>
+        <p class="section-description">
+          Esta seção irá exibir os dados coletados pelo nosso dispositivo Raspberry Pi e seus sensores.
+          Atualmente, estamos exibindo dados de demonstração, que serão substituídos pelos dados reais
+          assim que o sistema estiver ativo.
+        </p>
+        
+        <div class="monitoring-grid">
+          <div class="monitoring-card">
+            <div class="monitoring-header">
+              <div>
+                <p class="monitoring-label">Nível de CO₂</p>
+                <h3 class="monitoring-value">412 ppm</h3>
+              </div>
+              <div class="monitoring-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+              </div>
+            </div>
+            <div class="monitoring-bar">
+              <div class="monitoring-fill green" style="width: 35%;"></div>
+            </div>
+            <p class="monitoring-note">Normal: 350-450 ppm</p>
+          </div>
+          
+          <div class="monitoring-card">
+            <div class="monitoring-header">
+              <div>
+                <p class="monitoring-label">Detecção Sonora</p>
+                <h3 class="monitoring-value">42 dB</h3>
+              </div>
+              <div class="monitoring-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="20" rx="2" ry="2"/><path d="M4 10v4"/><path d="M20 10v4"/></svg>
+              </div>
+            </div>
+            <div class="monitoring-bar">
+              <div class="monitoring-fill green" style="width: 25%;"></div>
+            </div>
+            <p class="monitoring-note">Alerta: > 85 dB (Motosserra)</p>
+          </div>
+          
+          <div class="monitoring-card">
+            <div class="monitoring-header">
+              <div>
+                <p class="monitoring-label">Temperatura</p>
+                <h3 class="monitoring-value">26.5 °C</h3>
+              </div>
+              <div class="monitoring-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+              </div>
+            </div>
+            <div class="monitoring-bar">
+              <div class="monitoring-fill orange" style="width: 55%;"></div>
+            </div>
+            <p class="monitoring-note">Normal: 20-30 °C para florestas</p>
+          </div>
+          
+          <div class="monitoring-card">
+            <div class="monitoring-header">
+              <div>
+                <p class="monitoring-label">Umidade</p>
+                <h3 class="monitoring-value">68%</h3>
+              </div>
+              <div class="monitoring-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
+              </div>
+            </div>
+            <div class="monitoring-bar">
+              <div class="monitoring-fill blue" style="width: 68%;"></div>
+            </div>
+            <p class="monitoring-note">Ideal: 60-80% para florestas</p>
+          </div>
+        </div>
+        
+        <div class="monitoring-details">
+          <div class="graph-container">
+            <h3>Gráfico de Monitoramento "Talves nao tenha isso"</h3>
+            <div class="graph-placeholder">
+              <p>Aqui será exibido o gráfico dos dados coletados pelo dispositivo.</p>
+              <p class="placeholder-text">O gráfico mostrará tendências de CO₂, sons detectados e temperatura ao longo do tempo.</p>
+            </div>
+            <div class="graph-options">
+              <button class="graph-option active">Hoje</button>
+              <button class="graph-option">Semana</button>
+              <button class="graph-option">Mês</button>
+              <button class="graph-option">Ano</button>
+            </div>
+          </div>
+          
+          <div class="system-status">
+            <h3>Status do Sistema "Talvez ne, profissionalismo</h3>
+            
+            <div class="status-items">
+              <div class="status-item">
+                <div class="status-label">
+                  <div class="status-indicator green"></div>
+                  <span>Sensor de CO₂</span>
+                </div>
+                <span class="status-value green">Online</span>
+              </div>
+              
+              <div class="status-item">
+                <div class="status-label">
+                  <div class="status-indicator green"></div>
+                  <span>Microfone</span>
+                </div>
+                <span class="status-value green">Online</span>
+              </div>
+              
+              <div class="status-item">
+                <div class="status-label">
+                  <div class="status-indicator green"></div>
+                  <span>Painel Solar</span>
+                </div>
+                <span class="status-value green">Carregando</span>
+              </div>
+              
+              <div class="status-item">
+                <div class="status-label">
+                  <div class="status-indicator orange"></div>
+                  <span>Transmissão de Dados</span>
+                </div>
+                <span class="status-value orange">Limitada</span>
+              </div>
+              
+              <div class="status-item">
+                <div class="status-label">
+                  <div class="status-indicator green"></div>
+                  <span>Raspberry Pi</span>
+                </div>
+                <span class="status-value green">Operacional</span>
+              </div>
+            </div>
+            
+            <div class="system-resources">
+              <div class="resource">
+                <div class="resource-label">
+                  <span>Bateria</span>
+                  <span class="resource-value">76%</span>
+                </div>
+                <div class="resource-bar">
+                  <div class="resource-fill" style="width: 76%;"></div>
+                </div>
+              </div>
+              
+              <div class="resource">
+                <div class="resource-label">
+                  <span>Armazenamento</span>
+                  <span class="resource-value">32%</span>
+                </div>
+                <div class="resource-bar">
+                  <div class="resource-fill" style="width: 32%;"></div>
+                </div>
+              </div>
+              
+              <div class="last-update">
+                <p>Última atualização: 15/05/2025 10:32</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- Team Section By Theo-->
+    <section class="section" id="equipe">
+      <div class="container">
+        <h2 class="section-title">Nossa Equipe</h2>
+        <p class="section-description">
+          Conheça os talentos por trás do projeto Nao sei o nome. Nossa equipe multidisciplinar 
+          combina conhecimentos em engenharia, ciência de dados e conservação ambiental.
+        </p>
+        <div class="hero-buttons">
+            <a href="equipe-prototipo.html" class="btn btn-primary">Conheça a Equipe</a>
+        </div>
+    </section>
+
+    <!-- Footer by Theo-->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><path d="M16 16a4 4 0 0 1-8 0 4 4 0 0 1 8 0z"/><path d="M12 3v1"/><path d="M12 20v1"/><path d="M3 12h1"/><path d="M20 12h1"/><path d="m18.364 5.636-.707.707"/><path d="m6.343 17.657-.707.707"/><path d="m5.636 5.636.707.707"/><path d="m17.657 17.657.707.707"/></svg>
+              <span>Sentinel</span>
+            </div>
+            <p>
+              Monitoramento inteligente de desmatamento usando Raspberry Pi e sensores avançados, 
+              fornecendo proteção em tempo real para áreas florestais vulneráveis.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              </a> 
+              <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                </svg>
+              </a>
+                
+             
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <div class="footer-group">
+              <h3>Projeto</h3>
+              <div class="footer-menu">
+                <a href="#projeto">Visão Geral</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#construcao">A Construção</a>
+              </div>
+            </div>
+            
+            <div class="footer-group">
+              <h3>Recursos</h3>
+              <div class="footer-menu">
+                <a href="#monitoramento">Monitoramento</a>
+                <a href="#equipe">Equipe</a>
+                <a href="#">Documentação</a>
+              </div>
+            </div>
+            
+            <div class="footer-group">
+              <h3>Contato</h3>
+              <div class="footer-contact">
+                <a href="mailto:contato@ecovigilante.com">sentinel.project@gmail.com</a>
+                <p>(85) 9748-1212</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>© <span id="current-year"></span> Sentinel. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
